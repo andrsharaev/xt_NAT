@@ -1566,13 +1566,13 @@ static const struct file_operations users_seq_fops = {
 
 static int stat_seq_show(struct seq_file *m, void *v)
 {
-    seq_printf(m, "Active NAT sessions: %ld\n", atomic64_read(&sessions_active));
-    seq_printf(m, "Tried NAT sessions: %ld\n", atomic64_read(&sessions_tried));
-    seq_printf(m, "Created NAT sessions: %ld\n", atomic64_read(&sessions_created));
-    seq_printf(m, "DNAT dropped pkts: %ld\n", atomic64_read(&dnat_dropped));
-    seq_printf(m, "Fragmented pkts: %ld\n", atomic64_read(&frags));
-    seq_printf(m, "Related ICMP pkts: %ld\n", atomic64_read(&related_icmp));
-    seq_printf(m, "Active Users: %ld\n", atomic64_read(&users_active));
+    seq_printf(m, "Active NAT sessions: %lld\n", (u64)atomic64_read(&sessions_active));
+    seq_printf(m, "Tried NAT sessions: %lld\n", (u64)atomic64_read(&sessions_tried));
+    seq_printf(m, "Created NAT sessions: %lld\n", (u64)atomic64_read(&sessions_created));
+    seq_printf(m, "DNAT dropped pkts: %lld\n", (u64)atomic64_read(&dnat_dropped));
+    seq_printf(m, "Fragmented pkts: %lld\n", (u64)atomic64_read(&frags));
+    seq_printf(m, "Related ICMP pkts: %lld\n", (u64)atomic64_read(&related_icmp));
+    seq_printf(m, "Active Users: %lld\n", (u64)atomic64_read(&users_active));
 
     return 0;
 }
